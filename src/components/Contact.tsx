@@ -91,7 +91,7 @@ export default function Contact() {
             <div className="flex justify-end mt-2">
               <button
                 type="submit"
-                className="bg-primary hover:bg-[#e65c00] text-white font-semibold px-8 py-3.5 rounded-full transition-all duration-300 hover:shadow-[0_0_25px_rgba(255,107,0,0.5)] flex items-center gap-2 transform hover:-translate-y-1"
+                className="bg-primary hover:bg-primary/80 text-[#111111] font-bold px-8 py-3.5 rounded-full transition-all duration-300 hover:shadow-[0_0_25px_rgba(0,180,251,0.5)] flex items-center gap-2 transform hover:-translate-y-1"
               >
                 {sent ? (
                   'Message Sent!'

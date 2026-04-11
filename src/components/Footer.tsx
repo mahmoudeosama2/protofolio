@@ -18,7 +18,7 @@ export default function Footer() {
     <footer className="bg-[#0e0e0e] border-t border-gray-800 py-10">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col items-center gap-6">
-          <a href="#home" className="text-2xl font-extrabold text-orange-500 tracking-wider">
+          <a href="#home" className="text-2xl font-extrabold text-primary tracking-wider">
             LOGO
           </a>
 
@@ -27,7 +27,7 @@ export default function Footer() {
               <button
                 key={link.label}
                 onClick={() => scrollTo(link.href)}
-                className="text-gray-400 hover:text-orange-400 text-sm transition-colors duration-200"
+                className="text-gray-400 hover:text-primary text-sm transition-colors duration-200"
               >
                 {link.label}
               </button>
@@ -44,7 +44,7 @@ export default function Footer() {
               <a
                 key={i}
                 href={social.href}
-                className="w-8 h-8 rounded-full border border-gray-700 flex items-center justify-center text-gray-400 hover:border-orange-500 hover:text-orange-500 transition-all duration-200"
+                className="w-8 h-8 rounded-full border border-gray-700 flex items-center justify-center text-gray-400 hover:border-primary hover:text-primary transition-all duration-200"
               >
                 {social.icon}
               </a>
@@ -54,14 +54,14 @@ export default function Footer() {
           <div className="flex flex-wrap justify-center gap-8 text-gray-500 text-sm">
             <a
               href="mailto:mahmoodfazile@gmail.com"
-              className="flex items-center gap-2 hover:text-orange-400 transition-colors"
+              className="flex items-center gap-2 hover:text-primary transition-colors"
             >
               <Mail size={14} />
               MahmoodFazile@gmail.com
             </a>
             <a
               href="tel:+14001231234"
-              className="flex items-center gap-2 hover:text-orange-400 transition-colors"
+              className="flex items-center gap-2 hover:text-primary transition-colors"
             >
               <Phone size={14} />
               +1 400 123 1234

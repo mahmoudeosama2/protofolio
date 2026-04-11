@@ -63,7 +63,7 @@ export default function Services() {
                 visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
               }}
               key={service.title}
-              className="bg-dark-100 rounded-2xl p-8 group hover:bg-[#1f1f1f] hover:shadow-[0_0_30px_rgba(255,107,0,0.1)] transition-all duration-300 border border-white/5 hover:border-primary/30 transform hover:-translate-y-1"
+              className="bg-dark-100 rounded-2xl p-8 group hover:bg-[#1f1f1f] hover:shadow-[0_0_30px_rgba(0,180,251,0.1)] transition-all duration-300 border border-white/5 hover:border-primary/30 transform hover:-translate-y-1"
             >
               <div className="text-primary mb-6 group-hover:scale-110 transition-transform duration-300 w-fit p-3 bg-primary/10 rounded-xl group-hover:bg-primary/20">
                 {service.icon}
