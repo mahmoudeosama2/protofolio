@@ -39,7 +39,7 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#home" className="text-2xl font-extrabold text-orange-500 tracking-wider">
+        <a href="#home" className="text-2xl font-extrabold text-primary tracking-wider">
           LOGO
         </a>
 
@@ -50,8 +50,8 @@ export default function Navbar() {
               onClick={() => handleNav(link.label, link.href)}
               className={`text-sm font-medium transition-colors duration-200 ${
                 active === link.label
-                  ? 'text-orange-500'
-                  : 'text-gray-300 hover:text-orange-400'
+                  ? 'text-primary'
+                  : 'text-gray-300 hover:text-primary/70'
               }`}
             >
               {link.label}
@@ -62,14 +62,14 @@ export default function Navbar() {
         <div className="hidden md:block">
           <button
             onClick={() => handleNav('Contact me', '#contact')}
-            className="bg-primary hover:bg-[#e65c00] text-white font-semibold px-7 py-2.5 rounded-full transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,107,0,0.4)] transform hover:-translate-y-0.5"
+            className="bg-primary hover:bg-primary/80 text-[#111111] font-bold px-7 py-2.5 rounded-full transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,180,251,0.4)] transform hover:-translate-y-0.5"
           >
             Hire Me
           </button>
         </div>
 
         <button
-          className="md:hidden text-gray-300 hover:text-orange-500 transition-colors"
+          className="md:hidden text-gray-300 hover:text-primary transition-colors"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           {menuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -83,7 +83,7 @@ export default function Navbar() {
               key={link.label}
               onClick={() => handleNav(link.label, link.href)}
               className={`text-left text-sm font-medium transition-colors duration-200 ${
-                active === link.label ? 'text-orange-500' : 'text-gray-300 hover:text-orange-400'
+                active === link.label ? 'text-primary' : 'text-gray-300 hover:text-primary/70'
               }`}
             >
               {link.label}
@@ -91,7 +91,7 @@ export default function Navbar() {
           ))}
           <button
             onClick={() => handleNav('Contact me', '#contact')}
-            className="bg-orange-500 hover:bg-orange-400 text-white font-semibold px-6 py-2.5 rounded-md transition-all duration-200 w-fit"
+            className="bg-primary hover:bg-primary/80 text-[#111111] font-bold px-6 py-2.5 rounded-full transition-all duration-200 w-fit"
           >
             Hire Me
           </button>

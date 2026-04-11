@@ -39,7 +39,7 @@ function CircularSkill({ name, percentage, animate }: CircularSkillProps) {
             cy="55"
             r={radius}
             fill="none"
-            stroke="#f97316"
+            stroke="#00B4FB"
             strokeWidth="8"
             strokeLinecap="round"
             strokeDasharray={circumference}
@@ -48,7 +48,7 @@ function CircularSkill({ name, percentage, animate }: CircularSkillProps) {
           />
         </svg>
         <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <span className="text-orange-500 text-xl font-bold">{animate ? percentage : 0}%</span>
+          <span className="text-primary text-xl font-bold">{animate ? percentage : 0}%</span>
         </div>
       </div>
       <p className="text-gray-300 text-sm font-medium text-center">{name}</p>
