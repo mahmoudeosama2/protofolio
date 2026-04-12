@@ -39,7 +39,7 @@ function CircularSkill({ name, percentage, animate }: CircularSkillProps) {
             cy="55"
             r={radius}
             fill="none"
-            stroke="#00B4FB"
+            stroke="#FD6F00"
             strokeWidth="8"
             strokeLinecap="round"
             strokeDasharray={circumference}

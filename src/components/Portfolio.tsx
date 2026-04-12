@@ -87,7 +87,7 @@ export default function Portfolio() {
               onClick={() => setActiveFilter(f)}
               className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
                 activeFilter === f
-                  ? 'bg-primary text-[#111111] shadow-[0_0_20px_rgba(0,180,251,0.4)] transform scale-105'
+                  ? 'bg-primary text-[#111111] shadow-[0_0_20px_rgba(253,111,0,0.4)] transform scale-105'
                   : 'bg-dark-100 text-gray-400 hover:text-primary hover:bg-white/5 border border-transparent hover:border-primary/20'
               }`}
             >

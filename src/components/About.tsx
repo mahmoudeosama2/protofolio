@@ -54,7 +54,7 @@ export default function About() {
               creating in a better world.
             </p>
 
-            <button className="bg-primary hover:bg-[#e65c00] text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:shadow-[0_0_25px_rgba(255,107,0,0.5)] flex items-center gap-2 w-fit transform hover:-translate-y-1">
+            <button className="bg-primary hover:bg-primary/80 text-[#111111] font-extrabold px-8 py-3 rounded-full transition-all duration-300 hover:shadow-[0_0_25px_rgba(253,111,0,0.5)] flex items-center gap-2 w-fit transform hover:-translate-y-1">
               <Download size={18} />
               Download CV
             </button>

@@ -58,7 +58,7 @@ export default function Hero() {
           <div className="flex items-center gap-4 mt-4">
             <button
               onClick={() => scrollTo('#contact')}
-              className="bg-primary hover:bg-primary/80 text-[#111111] font-bold px-8 py-3 rounded-full transition-all duration-300 hover:shadow-[0_0_25px_rgba(0,180,251,0.5)] transform hover:-translate-y-1"
+              className="bg-primary hover:bg-primary/80 text-[#111111] font-bold px-8 py-3 rounded-full transition-all duration-300 hover:shadow-[0_0_25px_rgba(253,111,0,0.5)] transform hover:-translate-y-1"
             >
               Hire Me
             </button>

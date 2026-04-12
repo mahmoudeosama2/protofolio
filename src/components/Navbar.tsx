@@ -62,7 +62,7 @@ export default function Navbar() {
         <div className="hidden md:block">
           <button
             onClick={() => handleNav('Contact me', '#contact')}
-            className="bg-primary hover:bg-primary/80 text-[#111111] font-bold px-7 py-2.5 rounded-full transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,180,251,0.4)] transform hover:-translate-y-0.5"
+            className="bg-primary hover:bg-primary/80 text-[#111111] font-bold px-7 py-2.5 rounded-full transition-all duration-300 hover:shadow-[0_0_20px_rgba(253,111,0,0.4)] transform hover:-translate-y-0.5"
           >
             Hire Me
           </button>
