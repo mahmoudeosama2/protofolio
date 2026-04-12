@@ -45,7 +45,11 @@ export default function Hero() {
                 href: '#',
               },
             ].map((social, i) => (
+              <a
+                key={i}
+                href={social.href}
                 className="w-9 h-9 rounded-full border border-gray-600 flex items-center justify-center text-gray-400 hover:border-primary hover:text-primary transition-all duration-200"
+              >
                 {social.icon}
               </a>
             ))}
