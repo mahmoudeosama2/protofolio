@@ -1,5 +1,6 @@
 import { Download } from 'lucide-react';
 import { motion } from 'framer-motion';
+import myProfileImage from '../assets/images/my_image.png';
 
 export default function About() {
   return (
@@ -24,8 +25,8 @@ export default function About() {
             <div className="relative group">
               <div className="absolute inset-0 rounded-[2rem] bg-primary/20 translate-x-4 translate-y-4 transition-transform duration-300 group-hover:translate-x-6 group-hover:translate-y-6" />
               <img
-                src="https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=500"
-                alt="About Mahmood Fazile"
+                src={myProfileImage}
+                alt="About Mahmoud Osama"
                 className="relative rounded-[2rem] w-full max-w-sm object-cover grayscale transition-all duration-500 group-hover:grayscale-0 border border-white/10"
                 loading="lazy"
               />
@@ -40,18 +41,11 @@ export default function About() {
             className="flex flex-col gap-6"
           >
             <p className="text-gray-300 text-base leading-relaxed tracking-wide">
-              A software engineer has passion-like ambition of digital creations to navigate
-              the internet businesses of web, including engaging customer-first-client-up-to-all-digital
-              world. With fluent practice of many languages including JavaScript, React, TypeScript, and
-              Swift streak a character of objectives and patterns that comes in Part come it's
-              proven — well-honed skills of years of practice, always keeping things relevant,
-              ensuring the future of programs and applications. Each becomes a 1,
-              maintaining cutting-edge performance and consistency. The
-              innovative designs in this digital world, then has the touch of artistry
-              and technology have all glowed: the more fragile of an ever-
-              creating space for perfection. Mahmood remains a noble person
-              connecting the mundane battles with the impact echo of code-
-              creating in a better world.
+              I am Mahmoud Osama, a passionate Mobile App Developer specializing in Flutter. 
+              I design and develop high-performance, cross-platform mobile applications for both iOS and Android. 
+              My expertise lies in building intuitive user interfaces, integrating robust backend services, and ensuring seamless user experiences. 
+              With a strong eye for detail and commitment to quality, I strive to transform innovative ideas into reality. 
+              Whether it's creating sleek mobile layouts or optimizing app performance, I am dedicated to delivering top-tier digital products.
             </p>
 
             <button className="bg-primary hover:bg-primary/80 text-[#111111] font-extrabold px-8 py-3 rounded-full transition-all duration-300 hover:shadow-[0_0_25px_rgba(253,111,0,0.5)] flex items-center gap-2 w-fit transform hover:-translate-y-1">

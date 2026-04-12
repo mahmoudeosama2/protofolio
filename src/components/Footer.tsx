@@ -1,4 +1,4 @@
-import { Instagram, Linkedin, Dribbble, Mail, Phone } from 'lucide-react';
+import { Linkedin, Mail, Phone, MessageCircle, Github } from 'lucide-react';
 
 const navLinks = [
   { label: 'Home', href: '#home' },
@@ -36,10 +36,9 @@ export default function Footer() {
 
           <div className="flex items-center gap-4">
             {[
-              { icon: <Instagram size={17} />, href: '#' },
-              { icon: <Linkedin size={17} />, href: '#' },
-              { icon: <Dribbble size={17} />, href: '#' },
-              { icon: <span className="text-xs font-bold">Be</span>, href: '#' },
+              { icon: <Linkedin size={17} />, href: 'https://www.linkedin.com/in/mahmoud-osama-6030a52a3/' },
+              { icon: <MessageCircle size={17} />, href: 'https://wa.me/201154506642' },
+              { icon: <Github size={17} />, href: '#' },
             ].map((social, i) => (
               <a
                 key={i}
@@ -60,17 +59,17 @@ export default function Footer() {
               MahmoodFazile@gmail.com
             </a>
             <a
-              href="tel:+14001231234"
+              href="tel:+201154506642"
               className="flex items-center gap-2 hover:text-primary transition-colors"
             >
               <Phone size={14} />
-              +1 400 123 1234
+              +20 115 450 6642
             </a>
           </div>
 
           <div className="w-full border-t border-gray-800 pt-5 text-center">
             <p className="text-gray-600 text-xs">
-              © {new Date().getFullYear()} Mahmood Fazile. All rights reserved.
+              © {new Date().getFullYear()} Mahmoud Osama. All rights reserved.
             </p>
           </div>
         </div>

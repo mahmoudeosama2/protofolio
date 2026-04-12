@@ -1,5 +1,6 @@
-import { Instagram, Linkedin, Dribbble } from 'lucide-react';
+import { Linkedin, MessageCircle, Github } from 'lucide-react';
 import { motion } from 'framer-motion';
+import myProfileImage from '../assets/images/my_image.png';
 
 const stats = [
   { value: '5+', label: 'Experiences' },
@@ -27,23 +28,17 @@ export default function Hero() {
         >
           <div>
             <p className="text-gray-400 text-lg mb-1 tracking-wide">Hi I am</p>
-            <p className="text-white text-2xl font-semibold mb-2">Mahmood Fazile</p>
+            <p className="text-white text-2xl font-semibold mb-2">Mahmoud Osama</p>
             <h1 className="text-5xl md:text-7xl font-extrabold text-primary leading-tight drop-shadow-lg">
-              UI/UX <br /> Designer
+              Flutter <br /> Developer
             </h1>
           </div>
 
           <div className="flex items-center gap-3 mt-2">
             {[
-              { icon: <Instagram size={18} />, href: '#' },
-              { icon: <Linkedin size={18} />, href: '#' },
-              { icon: <Dribbble size={18} />, href: '#' },
-              {
-                icon: (
-                  <span className="text-xs font-bold leading-none">Be</span>
-                ),
-                href: '#',
-              },
+              { icon: <Linkedin size={18} />, href: 'https://www.linkedin.com/in/mahmoud-osama-6030a52a3/' },
+              { icon: <MessageCircle size={18} />, href: 'https://wa.me/201154506642' },
+              { icon: <Github size={18} />, href: '#' },
             ].map((social, i) => (
               <a
                 key={i}
@@ -93,8 +88,8 @@ export default function Hero() {
             initial={{ y: 20 }}
             animate={{ y: 0 }}
             transition={{ duration: 2, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
-            src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=600"
-            alt="Mahmood Fazile - UI/UX Designer"
+            src={myProfileImage}
+            alt="Mahmoud Osama - Flutter Developer"
             className="relative z-10 w-[380px] md:w-[480px] object-cover object-top grayscale hover:grayscale-0 transition-all duration-700"
             style={{ maskImage: 'linear-gradient(to bottom, black 65%, transparent 100%)' }}
             loading="lazy"
