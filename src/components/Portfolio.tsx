@@ -69,15 +69,14 @@ export default function Portfolio() {
                   onClick={() => setSelectedApp(app)}
                   className="relative rounded-[2rem] overflow-hidden cursor-pointer group bg-dark-100 border border-white/5 shadow-lg hover:border-primary/30 hover:shadow-[0_0_30px_rgba(253,111,0,0.15)] transition-all duration-300 flex flex-col items-center justify-center p-8 aspect-square"
                 >
-                  <div className="w-32 h-32 rounded-3xl overflow-hidden mb-6 shadow-2xl relative bg-[#111]">
-                    <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 mix-blend-overlay"></div>
+                  <motion.div className="w-40 h-40 mb-8 relative flex items-center justify-center filter drop-shadow-[0_0_15px_rgba(253,111,0,0.3)] group-hover:drop-shadow-[0_0_30px_rgba(253,111,0,0.6)] transition-all duration-500">
                     <img
                       src={app.logo}
                       alt={app.id}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
                       loading="lazy"
                     />
-                  </div>
+                  </motion.div>
                   <h3 className="text-white font-bold text-2xl tracking-wide group-hover:text-primary transition-colors">{app.id}</h3>
                   <p className="text-gray-500 text-sm mt-3 font-medium uppercase tracking-widest text-[#111111] bg-primary/10 group-hover:bg-primary group-hover:text-[#111] px-4 py-1.5 rounded-full transition-colors">
                     View Details
@@ -111,8 +110,8 @@ export default function Portfolio() {
               {/* Header */}
               <div className="flex items-center justify-between p-6 md:p-8 border-b border-white/5 backdrop-blur-md bg-[#111111]/90 sticky top-0 z-20">
                 <div className="flex items-center gap-5">
-                  <div className="w-16 h-16 rounded-2xl overflow-hidden shadow-lg border border-white/10 bg-[#161616]">
-                    <img src={selectedApp.logo} alt={selectedApp.id} className="w-full h-full object-cover" />
+                  <div className="w-16 h-16 flex items-center justify-center filter drop-shadow-[0_0_10px_rgba(253,111,0,0.4)]">
+                    <img src={selectedApp.logo} alt={selectedApp.id} className="w-full h-full object-contain" />
                   </div>
                   <div>
                     <h3 className="text-2xl md:text-3xl font-extrabold text-white">{selectedApp.id}</h3>
