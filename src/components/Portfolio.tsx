@@ -179,12 +179,12 @@ export default function Portfolio() {
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: i * 0.05 }}
                           key={i} 
-                          className="min-w-[200px] md:min-w-[260px] snap-center rounded-2xl overflow-hidden border border-white/10 shadow-xl bg-[#1a1a1a] flex-shrink-0"
+                          className="h-[450px] md:h-[550px] w-auto flex-shrink-0 snap-center rounded-2xl overflow-hidden border border-white/10 shadow-xl bg-black"
                         >
                           <img
                             src={screenshot}
                             alt={`${selectedApp.id} screenshot ${i + 1}`}
-                            className="w-full h-auto object-cover"
+                            className="h-full w-auto object-contain"
                             loading="lazy"
                           />
                         </motion.div>
