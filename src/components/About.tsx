@@ -1,7 +1,6 @@
 import { Download } from 'lucide-react';
 import { motion } from 'framer-motion';
 import myProfileImage from '../assets/images/my_image.png';
-
 export default function About() {
   return (
     <section id="about" className="bg-[#141414] py-20">
