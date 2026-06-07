@@ -2,5 +2,19 @@
     "name": "Aloo Turkey (الو تركيا)",
     "description": "A direct personal translator app for foreigners in Turkey. Connects users with live specialized translators for hospitals, government departments, police, and daily life scenarios.",
     "google_play_url": "https://play.google.com/store/apps/details?id=com.alameer.kolayca",
-    "app_store_url": "https://apps.apple.com/app/aloo-t%C3%BCrkiye/id1614865181"
+    "app_store_url": "https://apps.apple.com/us/app/aloo-t%C3%BCrkiye/id6670699196",
+    "tech_stack": [
+        "Flutter",
+        "Dart",
+        "Agora / WebRTC (Live Calls)",
+        "Firebase Realtime Database",
+        "Payment Gateway Integration"
+    ],
+    "features": [
+        "Instant live voice connection with specialized translators.",
+        "Categorized translation services (Medical, Legal, Police, Daily Life).",
+        "Real-time availability status for online translators.",
+        "Secure in-app purchases and session billing."
+    ],
+    "my_role": "Lead Mobile Developer - Architected a reliable, low-latency voice call system connecting users and translators instantly. Implemented real-time presence tracking and handled network edge-cases to prevent dropped calls during critical situations."
 }

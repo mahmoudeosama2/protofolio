@@ -88,7 +88,7 @@ export default function Portfolio() {
                   <img
                     src={app.logo}
                     alt={app.config?.name || app.id}
-                    className="w-32 h-32 md:w-36 md:h-36 object-contain filter group-hover:scale-110 transition-transform duration-500 z-10 drop-shadow-2xl"
+                    className="w-32 h-32 md:w-36 md:h-36 rounded-[24%] object-contain filter group-hover:scale-110 transition-transform duration-500 z-10 drop-shadow-2xl"
                     loading="lazy"
                   />
 
@@ -155,7 +155,7 @@ export default function Portfolio() {
               {/* Header */}
               <div className="flex items-center justify-between p-6 md:p-8 border-b border-white/5 backdrop-blur-md bg-[#111111]/90 sticky top-0 z-20">
                 <div className="flex items-center gap-5">
-                  <img src={selectedApp.logo} alt={selectedApp.id} className="w-16 h-16 object-contain filter drop-shadow-md" />
+                  <img src={selectedApp.logo} alt={selectedApp.id} className="w-16 h-16 rounded-2xl object-contain filter drop-shadow-md" />
                   <div>
                     <h3 className="text-2xl md:text-3xl font-extrabold text-white">{selectedApp.config?.name || selectedApp.id}</h3>
                     <p className="text-primary text-sm font-medium tracking-wide mt-1">Mobile Application</p>
@@ -327,21 +327,51 @@ export default function Portfolio() {
             onClick={() => setFullScreenImage(null)}
           >
             <button 
-              className="absolute top-6 right-6 w-12 h-12 bg-white/10 hover:bg-primary text-white rounded-full flex items-center justify-center transition-all z-10"
+              className="absolute top-6 right-6 w-12 h-12 bg-white/10 hover:bg-primary text-white rounded-full flex items-center justify-center transition-all z-50"
               onClick={() => setFullScreenImage(null)}
             >
               <X size={24} />
             </button>
+
+            {/* Prev Button */}
+            {selectedApp?.screenshots && selectedApp.screenshots.indexOf(fullScreenImage) > 0 && (
+              <button 
+                className="absolute left-4 md:left-10 top-1/2 -translate-y-1/2 w-14 h-14 bg-white/10 hover:bg-primary text-white rounded-full flex items-center justify-center transition-all z-50 backdrop-blur-sm"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  const currentIndex = selectedApp.screenshots.indexOf(fullScreenImage);
+                  setFullScreenImage(selectedApp.screenshots[currentIndex - 1]);
+                }}
+              >
+                <ChevronLeft size={32} />
+              </button>
+            )}
+
             <motion.img 
-              initial={{ scale: 0.9 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0.9 }}
-              transition={{ type: "spring", bounce: 0.2 }}
+              key={fullScreenImage}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}
               src={fullScreenImage} 
               alt="Fullscreen screenshot" 
-              className="max-w-full max-h-full object-contain drop-shadow-2xl rounded-lg"
+              className="max-w-full max-h-full object-contain drop-shadow-2xl rounded-lg z-40"
               onClick={(e) => e.stopPropagation()}
             />
+
+            {/* Next Button */}
+            {selectedApp?.screenshots && selectedApp.screenshots.indexOf(fullScreenImage) < selectedApp.screenshots.length - 1 && (
+              <button 
+                className="absolute right-4 md:right-10 top-1/2 -translate-y-1/2 w-14 h-14 bg-white/10 hover:bg-primary text-white rounded-full flex items-center justify-center transition-all z-50 backdrop-blur-sm"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  const currentIndex = selectedApp.screenshots.indexOf(fullScreenImage);
+                  setFullScreenImage(selectedApp.screenshots[currentIndex + 1]);
+                }}
+              >
+                <ChevronRight size={32} />
+              </button>
+            )}
           </motion.div>
         )}
       </AnimatePresence>

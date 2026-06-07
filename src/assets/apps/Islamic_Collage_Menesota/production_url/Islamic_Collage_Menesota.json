@@ -1,0 +1,20 @@
+{
+    "name": "Islamic College of Minnesota",
+    "description": "An academic mobile portal for students of the Islamic College of Minnesota, providing seamless access to courses, lectures, assignments, and campus news.",
+    "tech_stack": [
+        "Flutter",
+        "Dart",
+        "REST API Integration",
+        "Secure Media Player",
+        "PDF Viewer"
+    ],
+    "features": [
+        "Access and download course materials and assignments.",
+        "Watch recorded academic lectures directly within the app.",
+        "Real-time push notifications for university announcements.",
+        "Student dashboard for tracking progress and grades."
+    ],
+    "my_role": "Mobile Developer - Developed a robust educational platform focusing on secure media playback and offline caching, allowing students to download large PDF materials and study smoothly on the go.",
+    "google_play_url": "",
+    "app_store_url": ""
+}

@@ -2,5 +2,19 @@
     "name": "Arabiyun Ana (عربيون أنا)",
     "description": "An educational mobile application designed to teach Arabic to young learners in a fun and interactive way. Featuring gamified levels, writing practice, voice recognition, and rich audio-visual content.",
     "google_play_url": "https://play.google.com/store/apps/details?id=com.arabiyunana",
-    "app_store_url": "https://apps.apple.com/us/app/arabiyun-ana/id6471529061"
+    "app_store_url": "https://apps.apple.com/us/app/arabiyun-ana/id6471529061",
+    "tech_stack": [
+        "Flutter",
+        "Dart",
+        "Custom Animations (Framer/Lottie)",
+        "Audio/Video Processing",
+        "Local Storage / Hive"
+    ],
+    "features": [
+        "Interactive Arabic learning games with drag-and-drop mechanics.",
+        "Audio pronunciation guides and voice recording for practice.",
+        "Gamified progression system with levels and rewards.",
+        "Rich offline media support for uninterrupted learning."
+    ],
+    "my_role": "Frontend Mobile Developer - Designed a fluid, gamified user interface with 60fps custom animations. Engineered a local caching layer for heavy multimedia assets to ensure the app runs smoothly without internet dependency."
 }

@@ -2,5 +2,19 @@
     "name": "beStill",
     "description": "A food delivery and pick-up platform connecting customers with local restaurants. Provides a flexible platform for restaurants and driver partners.",
     "google_play_url": "https://play.google.com/store/apps/details?id=com.bestill.bestill",
-    "app_store_url": "https://apps.apple.com/no/app/bestill/id1612345678"
+    "app_store_url": "https://apps.apple.com/us/app/be-still/id1572545295",
+    "tech_stack": [
+        "Flutter",
+        "Dart",
+        "Google Maps SDK",
+        "Firebase Cloud Messaging",
+        "Reactive State Management"
+    ],
+    "features": [
+        "Real-time tracking of delivery drivers on interactive maps.",
+        "Dynamic restaurant menu browsing with custom modifiers.",
+        "Live order status notifications from preparation to delivery.",
+        "Seamless checkout and payment integration."
+    ],
+    "my_role": "Mobile Application Engineer - Built a highly synchronized three-way ecosystem (Customer, Driver, Restaurant). Overcame challenges with real-time location streaming and complex state management to ensure accurate delivery ETAs."
 }
