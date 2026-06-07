@@ -23,13 +23,20 @@ export default function Contact() {
   return (
     <section id="contact" className="bg-[#111111] py-20">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-14">
-          <h2 className="text-3xl font-bold text-white mb-3">Contact me</h2>
-          <p className="text-gray-400 text-sm max-w-xl mx-auto">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua.
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-14"
+        >
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-3 tracking-tight">
+            Let's <span className="text-primary">Connect</span>
+          </h2>
+          <p className="text-gray-400 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
+            Have an exciting project in mind or looking for a skilled Flutter developer to join your team? Feel free to reach out!
           </p>
-        </div>
+        </motion.div>
 
         <motion.div 
           initial={{ opacity: 0, y: 30 }}

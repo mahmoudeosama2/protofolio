@@ -1,0 +1,21 @@
+{
+    "name": "Awab (أواب)",
+    "description": "A comprehensive Islamic application featuring the Holy Quran with audio recitation, prayer times, Qibla direction, and notifications.",
+    "tech_stack": [
+        "Flutter",
+        "Dart",
+        "Precise Astronomical Calculations API",
+        "Offline Audio Caching System",
+        "Local Notification Scheduler",
+        "Geomagnetic Field Sensors (Compass)"
+    ],
+    "features": [
+        "Full Quran reading experience with translation, Tafsir, and high-quality audio recitation.",
+        "Precision prayer times calculation based on astronomical formulas.",
+        "Automatic, customizable Adhan notifications even in background mode.",
+        "Interactive Qibla compass utilizing geomagnetic device sensors."
+    ],
+    "my_role": "Core Mobile Architect - Solved complex prayer time scheduling challenges across different countries by implementing reliable timezone handling, daylight-saving adjustments, and precise local notification scheduling to ensure accurate Adhan delivery.",
+    "google_play_url": "https://play.google.com/store/apps/details?id=com.onatcipli.awab",
+    "app_store_url": ""
+}

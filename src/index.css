@@ -61,5 +61,23 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #00B4FB;
+  background: #FD6F00;
 }
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.05);
+  }
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float 12s ease-in-out infinite;
+}
+

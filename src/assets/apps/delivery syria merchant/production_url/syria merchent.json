@@ -1,0 +1,20 @@
+{
+    "name": "Delivery Syria - Merchant App",
+    "description": "An administration mobile portal for merchants to manage order creation, driver assignments, delivery status, and financials.",
+    "tech_stack": [
+        "Flutter",
+        "Dart",
+        "Reactive State Management",
+        "REST APIs",
+        "Firebase Cloud Messaging"
+    ],
+    "features": [
+        "Fast, dynamic order creation and dispatching pipeline.",
+        "Real-time tracking of drivers currently handling merchant packages.",
+        "Comprehensive settlement dashboards with digital receipts.",
+        "Interactive notifications for order status changes (assigned, picked up, delivered)."
+    ],
+    "my_role": "Core Mobile Developer - Designed merchant management workflows capable of processing large numbers of incoming orders with real-time synchronization between merchants, drivers, and customers.",
+    "google_play_url": "",
+    "app_store_url": ""
+}

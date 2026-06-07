@@ -1,4 +1,21 @@
 {
+    "name": "Brha (برحة)",
+    "description": "A comprehensive transportation and logistics platform for vehicles and horses. Features real-time tracking via Google Maps, dynamic pricing, and seamless driver connections.",
+    "tech_stack": [
+        "Flutter",
+        "Dart",
+        "Google Maps SDK",
+        "Real-time Geo-location Tracking",
+        "Dynamic Pricing Algorithms",
+        "REST APIs"
+    ],
+    "features": [
+        "Live interactive maps visualizing active shipment and transportation requests.",
+        "Shipment scheduling, dynamic fee calculation, and driver matching.",
+        "Accurate live location tracking of active drivers for customers.",
+        "Comprehensive dashboard for managing vehicle fleets and service types."
+    ],
+    "my_role": "Mobile Logistics Developer - Built a map-driven logistics experience where transportation requests are visualized instantly on interactive maps, allowing users and drivers to discover nearby opportunities in real time across multiple cities.",
     "google_play_url": "https://play.google.com/store/apps/details?id=com.brha.app",
     "app_store_url": "https://apps.apple.com/app/brha/id1588636592"
 }

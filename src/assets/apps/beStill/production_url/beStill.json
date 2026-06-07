@@ -1,4 +1,6 @@
 {
+    "name": "beStill",
+    "description": "A food delivery and pick-up platform connecting customers with local restaurants. Provides a flexible platform for restaurants and driver partners.",
     "google_play_url": "https://play.google.com/store/apps/details?id=com.bestill.bestill",
     "app_store_url": "https://apps.apple.com/no/app/bestill/id1612345678"
 }

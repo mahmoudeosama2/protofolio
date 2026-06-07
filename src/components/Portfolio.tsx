@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
-import { X, Play, Apple } from 'lucide-react';
+import { X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import appStoreIcon from '../assets/icons/app-store.png';
+import googlePlayIcon from '../assets/icons/google-play.png';
 
 const configModules = import.meta.glob('../assets/apps/*/production_url/*.json', { eager: true });
 const logoModules = import.meta.glob('../assets/apps/*/logo/*.{png,jpg,jpeg,svg}', { eager: true });
@@ -11,7 +13,8 @@ const appsData: Record<string, any> = {};
 // Parse Configs
 for (const path in configModules) {
   const appName = path.split('/')[3];
-  appsData[appName] = { ...appsData[appName], config: (configModules[path] as any).default || configModules[path] };
+  const config = (configModules[path] as any).default || configModules[path];
+  appsData[appName] = { ...appsData[appName], config };
 }
 
 // Parse Logos
@@ -60,27 +63,64 @@ export default function Portfolio() {
               {apps.map((app) => (
                 <motion.div
                   layout
-                  initial={{ opacity: 0, scale: 0.9 }}
+                  initial={{ opacity: 0, scale: 0.95 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true, margin: "-50px" }}
-                  whileHover={{ y: -5 }}
-                  transition={{ duration: 0.4 }}
+                  whileHover={{ y: -8 }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
                   key={app.id}
                   onClick={() => setSelectedApp(app)}
-                  className="relative rounded-[2rem] overflow-hidden cursor-pointer group bg-dark-100 border border-white/5 shadow-lg hover:border-primary/30 hover:shadow-[0_0_30px_rgba(253,111,0,0.15)] transition-all duration-300 flex flex-col items-center justify-center p-8 aspect-square"
+                  className="relative rounded-[2.5rem] overflow-hidden cursor-pointer group bg-gradient-to-b from-[#1c1c1c] to-[#121212] border border-white/5 shadow-2xl hover:border-primary/30 hover:shadow-[0_20px_50px_rgba(253,111,0,0.15)] transition-all duration-500 flex flex-col items-center justify-between p-8 text-center min-h-[420px]"
                 >
-                  <motion.div className="w-40 h-40 mb-8 relative flex items-center justify-center filter drop-shadow-[0_0_15px_rgba(253,111,0,0.3)] group-hover:drop-shadow-[0_0_30px_rgba(253,111,0,0.6)] transition-all duration-500">
+                  {/* Subtle ambient light behind the card on hover */}
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-48 bg-primary/10 rounded-full blur-[50px] opacity-40 group-hover:opacity-80 group-hover:scale-125 transition-all duration-700 pointer-events-none" />
+
+                  {/* App Icon Container - Squircle styling */}
+                  <div className="w-32 h-32 md:w-36 md:h-36 relative flex items-center justify-center rounded-[24%] shadow-[0_15px_30px_rgba(0,0,0,0.4)] group-hover:shadow-[0_20px_40px_rgba(253,111,0,0.25)] overflow-hidden transition-all duration-500 group-hover:scale-105 z-10">
+                    {/* Inner glossy reflection */}
+                    <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/5 to-white/10 opacity-20 pointer-events-none z-20" />
                     <img
                       src={app.logo}
-                      alt={app.id}
-                      className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
+                      alt={app.config?.name || app.id}
+                      className="w-full h-full object-cover filter group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
                     />
-                  </motion.div>
-                  <h3 className="text-white font-bold text-2xl tracking-wide group-hover:text-primary transition-colors">{app.id}</h3>
-                  <p className="text-gray-500 text-sm mt-3 font-medium uppercase tracking-widest text-[#111111] bg-primary/10 group-hover:bg-primary group-hover:text-[#111] px-4 py-1.5 rounded-full transition-colors">
-                    View Details
-                  </p>
+                  </div>
+
+                  {/* Content (Name & Description) */}
+                  <div className="flex flex-col items-center flex-1 justify-center my-4 z-10">
+                    <h3 className="text-white font-bold text-2xl tracking-wide group-hover:text-primary transition-colors text-center">
+                      {app.config?.name || app.id}
+                    </h3>
+                    {app.config?.description && (
+                      <p className="text-gray-400 text-sm leading-relaxed mt-2.5 line-clamp-2 max-w-[280px] group-hover:text-gray-300 transition-colors">
+                        {app.config.description}
+                      </p>
+                    )}
+                  </div>
+
+                  {/* Badges & Button Footer */}
+                  <div className="w-full flex flex-col items-center gap-4 z-10">
+                    {/* Platform Badges */}
+                    <div className="flex gap-3 items-center justify-center">
+                      {app.config?.google_play_url && (
+                        <img src={googlePlayIcon} alt="Google Play" className="h-8 w-auto object-contain drop-shadow-md" />
+                      )}
+                      {app.config?.app_store_url && (
+                        <img src={appStoreIcon} alt="App Store" className="h-8 w-auto object-contain drop-shadow-md" />
+                      )}
+                      {!app.config?.google_play_url && !app.config?.app_store_url && (
+                        <span className="flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase bg-primary/10 text-primary border border-primary/20">
+                          Mobile App
+                        </span>
+                      )}
+                    </div>
+
+                    {/* View Details Button */}
+                    <span className="px-6 py-2 rounded-full border border-white/10 text-gray-300 text-xs font-semibold tracking-wider uppercase bg-white/5 group-hover:border-primary group-hover:bg-primary group-hover:text-[#111111] group-hover:shadow-[0_0_20px_rgba(253,111,0,0.4)] transition-all duration-300">
+                      View Details
+                    </span>
+                  </div>
                 </motion.div>
               ))}
             </AnimatePresence>
@@ -110,11 +150,11 @@ export default function Portfolio() {
               {/* Header */}
               <div className="flex items-center justify-between p-6 md:p-8 border-b border-white/5 backdrop-blur-md bg-[#111111]/90 sticky top-0 z-20">
                 <div className="flex items-center gap-5">
-                  <div className="w-16 h-16 flex items-center justify-center filter drop-shadow-[0_0_10px_rgba(253,111,0,0.4)]">
-                    <img src={selectedApp.logo} alt={selectedApp.id} className="w-full h-full object-contain" />
+                  <div className="w-16 h-16 flex items-center justify-center rounded-2xl overflow-hidden filter drop-shadow-[0_0_10px_rgba(253,111,0,0.4)]">
+                    <img src={selectedApp.logo} alt={selectedApp.id} className="w-full h-full object-cover" />
                   </div>
                   <div>
-                    <h3 className="text-2xl md:text-3xl font-extrabold text-white">{selectedApp.id}</h3>
+                    <h3 className="text-2xl md:text-3xl font-extrabold text-white">{selectedApp.config?.name || selectedApp.id}</h3>
                     <p className="text-primary text-sm font-medium tracking-wide mt-1">Mobile Application</p>
                   </div>
                 </div>
@@ -136,13 +176,9 @@ export default function Portfolio() {
                       href={selectedApp.config.google_play_url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 bg-gradient-to-r from-[#1a1a1a] to-[#252525] hover:to-[#333] text-white px-6 py-3.5 rounded-2xl transition-all duration-300 border border-white/5 hover:border-primary/50 group shadow-lg"
+                      className="transition-transform duration-300 hover:scale-105 inline-block"
                     >
-                      <Play className="text-primary group-hover:scale-110 transition-transform fill-current" size={24} />
-                      <div className="flex flex-col text-left">
-                        <span className="text-[10px] text-gray-400 leading-none uppercase font-semibold">GET IT ON</span>
-                        <span className="text-sm font-bold leading-tight">Google Play</span>
-                      </div>
+                      <img src={googlePlayIcon} alt="Get it on Google Play" className="h-12 md:h-14 w-auto drop-shadow-lg" />
                     </a>
                   )}
                   {selectedApp.config?.app_store_url && (
@@ -150,19 +186,73 @@ export default function Portfolio() {
                       href={selectedApp.config.app_store_url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 bg-gradient-to-r from-[#1a1a1a] to-[#252525] hover:to-[#333] text-white px-6 py-3.5 rounded-2xl transition-all duration-300 border border-white/5 hover:border-white/30 group shadow-lg"
+                      className="transition-transform duration-300 hover:scale-105 inline-block"
                     >
-                      <Apple className="text-white group-hover:scale-110 transition-transform fill-current" size={24} />
-                      <div className="flex flex-col text-left">
-                        <span className="text-[10px] text-gray-400 leading-none uppercase font-semibold">Download on the</span>
-                        <span className="text-sm font-bold leading-tight">App Store</span>
-                      </div>
+                      <img src={appStoreIcon} alt="Download on the App Store" className="h-12 md:h-14 w-auto drop-shadow-lg" />
                     </a>
                   )}
                   {!selectedApp.config?.google_play_url && !selectedApp.config?.app_store_url && (
                      <p className="text-gray-500 text-sm">Store URLs are not available at the moment.</p>
                   )}
                 </div>
+
+                {/* Tech Stack */}
+                {selectedApp.config?.tech_stack && selectedApp.config.tech_stack.length > 0 && (
+                  <div className="mb-8">
+                    <h4 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                      <span className="w-2 h-4 bg-primary rounded-full"></span>
+                      Technologies Used
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {selectedApp.config.tech_stack.map((tech: string, i: number) => (
+                        <span key={i} className="px-3 py-1 rounded-full text-xs font-semibold bg-white/5 text-gray-300 border border-white/10 hover:border-primary/50 transition-colors">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Description */}
+                {selectedApp.config?.description && (
+                  <div className="mb-8">
+                    <h4 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                      <span className="w-2 h-4 bg-primary rounded-full"></span>
+                      About this App
+                    </h4>
+                    <p className="text-gray-400 leading-relaxed text-sm md:text-base">
+                      {selectedApp.config.description}
+                    </p>
+                  </div>
+                )}
+
+                {/* Key Features */}
+                {selectedApp.config?.features && selectedApp.config.features.length > 0 && (
+                  <div className="mb-8">
+                    <h4 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                      <span className="w-2 h-4 bg-primary rounded-full"></span>
+                      Key Features
+                    </h4>
+                    <ul className="list-disc pl-5 text-gray-400 space-y-2 text-sm md:text-base">
+                      {selectedApp.config.features.map((feature: string, i: number) => (
+                        <li key={i}>{feature}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* Developer Role / Impact */}
+                {selectedApp.config?.my_role && (
+                  <div className="mb-8">
+                    <h4 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                      <span className="w-2 h-4 bg-primary rounded-full"></span>
+                      My Contribution & Challenges Solved
+                    </h4>
+                    <p className="text-gray-400 leading-relaxed text-sm md:text-base bg-white/5 p-4 rounded-xl border border-white/5">
+                      {selectedApp.config.my_role}
+                    </p>
+                  </div>
+                )}
 
                 {/* Screenshots Gallery */}
                 <div>

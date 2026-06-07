@@ -1,0 +1,21 @@
+{
+    "name": "Delivery Syria - Driver App",
+    "description": "A tailored mobile solution for drivers in Syria, enabling real-time order acceptance, GPS tracking, and route optimization.",
+    "tech_stack": [
+        "Flutter",
+        "Dart",
+        "Background Location Tracking",
+        "Firebase Realtime Database",
+        "Distance-based Filtering Algorithm",
+        "FCM Notifications"
+    ],
+    "features": [
+        "Real-time background location updates synced directly to the customer map.",
+        "Ultra-low battery consumption optimization for continuous tracking.",
+        "Precision order notifications and matching based on driver proximity.",
+        "Offline trip caching and automatic sync once connectivity is restored."
+    ],
+    "my_role": "Lead Mobile Architect - Designed and implemented a background location tracking system that functions even when the device is locked. To solve the severe battery drain issue associated with continuous GPS tracking, I developed a distance-based filtering algorithm that only triggers GPS polling and database writes when the driver moves more than 10 meters, reducing battery consumption significantly while keeping customer maps accurate.",
+    "google_play_url": "",
+    "app_store_url": ""
+}

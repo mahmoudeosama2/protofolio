@@ -52,11 +52,11 @@ export default function Footer() {
 
           <div className="flex flex-wrap justify-center gap-8 text-gray-500 text-sm">
             <a
-              href="mailto:mahmoodfazile@gmail.com"
+              href="mailto:mahmoudeosama2@gmail.com"
               className="flex items-center gap-2 hover:text-primary transition-colors"
             >
               <Mail size={14} />
-              MahmoodFazile@gmail.com
+              mahmoudeosama2@gmail.com
             </a>
             <a
               href="tel:+201154506642"

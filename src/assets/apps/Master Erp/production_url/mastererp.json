@@ -1,0 +1,22 @@
+{
+    "name": "Master ERP",
+    "description": "Master ERP is a comprehensive business management and financial tracking system built to streamline shifts, inventory, and point-of-sale operations.",
+    "tech_stack": [
+        "Flutter",
+        "Dart",
+        "Local SQLite / Caching",
+        "Background Sync Dispatcher",
+        "GetX",
+        "PDF Document Generator",
+        "RESTful Web Services"
+    ],
+    "features": [
+        "Robust Shift Management and employee permission structures.",
+        "Comprehensive Inventory & Orders management pipeline.",
+        "Automatic PDF generation for invoices, receipts, and financial reports.",
+        "Offline-first sync capability with high-precision conflict resolution."
+    ],
+    "my_role": "Core Mobile Architect - Designed an offline-first architecture capable of handling large-scale business data while maintaining fast performance. Implemented local database caching, background synchronization, and conflict-resolution mechanisms to ensure data consistency even during unstable internet connectivity.",
+    "google_play_url": "",
+    "app_store_url": ""
+}

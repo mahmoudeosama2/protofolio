@@ -1,4 +1,21 @@
 {
+    "name": "CashFlow",
+    "description": "A centralized financial tracking and wallet management solution built to monitor and restrict employee expenditures, balance limits, and generate transaction reports.",
+    "tech_stack": [
+        "Flutter",
+        "Dart",
+        "Permission-Based Routing",
+        "Local Secure Storage",
+        "Financial Analytics Engine",
+        "RESTful Web Services"
+    ],
+    "features": [
+        "Consolidated wallet balance aggregation and limit monitoring.",
+        "Role-based permission access control for employees and admins.",
+        "Interactive charts showcasing expenditures, categories, and timelines.",
+        "Fast PDF report exports for monthly or weekly business statements."
+    ],
+    "my_role": "Lead Architect & Developer - Developed a centralized wallet management system that aggregates transactions from multiple digital wallets and provides permission-based access control, reporting, and limit monitoring for business operations.",
     "google_play_url": "",
     "app_store_url": ""
 }

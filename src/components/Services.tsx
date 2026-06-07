@@ -38,13 +38,20 @@ export default function Services() {
   return (
     <section id="services" className="bg-[#111111] py-20">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-14">
-          <h2 className="text-3xl font-bold text-white mb-3">Services</h2>
-          <p className="text-gray-400 text-sm max-w-xl mx-auto">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua.
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-14"
+        >
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-3 tracking-tight">
+            My <span className="text-primary">Services</span>
+          </h2>
+          <p className="text-gray-400 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
+            I specialize in crafting high-performance mobile applications and crafting seamless, intuitive user experiences that elevate digital brands.
           </p>
-        </div>
+        </motion.div>
 
         <motion.div 
           initial="hidden"
@@ -56,7 +63,7 @@ export default function Services() {
           }}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {services.map((service, index) => (
+          {services.map((service) => (
             <motion.div
               variants={{
                 hidden: { opacity: 0, y: 30 },

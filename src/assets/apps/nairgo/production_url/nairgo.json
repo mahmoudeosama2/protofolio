@@ -1,4 +1,22 @@
 {
+    "name": "Nairgo",
+    "description": "A next-generation social media and digital marketing platform. Integrates Reels, Stories, Live Streaming (Zego Cloud), a location-based marketplace, and real-time chat.",
+    "tech_stack": [
+        "Flutter",
+        "Dart",
+        "Zego Cloud SDK",
+        "Native Android/iOS Layers",
+        "Firebase Cloud Messaging",
+        "WebSockets",
+        "RESTful APIs"
+    ],
+    "features": [
+        "Interactive Reels & short video feeds with smooth pre-caching.",
+        "Integrated localized Marketplace for buying and selling products.",
+        "Live Streaming and high-fidelity video rooms powered by Zego Cloud.",
+        "Real-time messaging chat, groups, and instant push notifications."
+    ],
+    "my_role": "Lead Architect & Developer - Built a hybrid Flutter + Native video rendering architecture to achieve smooth scrolling and video playback similar to modern social media platforms. Native video layers handled media rendering while Flutter managed interactive UI elements such as reactions, comments, and live updates.",
     "google_play_url": "https://play.google.com/store/apps/details?id=com.alameermedia.nairgo",
     "app_store_url": "https://apps.apple.com/app/nairgo/id6443422477"
 }

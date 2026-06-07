@@ -1,11 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 
 const skills = [
-  { name: 'Figma', percentage: 100 },
-  { name: 'Adobe XD', percentage: 100 },
-  { name: 'Adobe Photoshop', percentage: 80 },
-  { name: 'Adobe Illustrator', percentage: 40 },
-  { name: 'Adobe Premiere', percentage: 70 },
+  { name: 'Flutter & Dart', percentage: 95 },
+  { name: 'State Management (Bloc / Riverpod)', percentage: 90 },
+  { name: 'Firebase & Supabase', percentage: 85 },
+  { name: 'REST APIs & WebSockets', percentage: 90 },
+  { name: 'CI/CD & Git', percentage: 85 },
+  { name: 'UI/UX Design (Figma)', percentage: 80 },
 ];
 
 interface CircularSkillProps {
@@ -51,7 +53,7 @@ function CircularSkill({ name, percentage, animate }: CircularSkillProps) {
           <span className="text-primary text-xl font-bold">{animate ? percentage : 0}%</span>
         </div>
       </div>
-      <p className="text-gray-300 text-sm font-medium text-center">{name}</p>
+      <p className="text-gray-300 text-sm font-medium text-center max-w-[120px]">{name}</p>
     </div>
   );
 }
@@ -75,8 +77,26 @@ export default function Skills() {
   }, []);
 
   return (
-    <section className="bg-[#111111] py-16">
+    <section id="skills" className="bg-[#141414] py-20 relative overflow-hidden">
+      {/* Background ambient glow */}
+      <div className="absolute top-[40%] right-[10%] w-[300px] h-[300px] rounded-full bg-primary/5 blur-[120px] pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-6" ref={ref}>
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-14"
+        >
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-3 tracking-tight">
+            My <span className="text-primary">Skills</span>
+          </h2>
+          <p className="text-gray-400 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
+            My technical skillset focused on building cross-platform, high-performance mobile apps with robust architectures.
+          </p>
+        </motion.div>
+
         <div className="flex flex-wrap justify-center gap-10 md:gap-16">
           {skills.map((skill) => (
             <CircularSkill

@@ -1,0 +1,22 @@
+{
+    "name": "CV Maker",
+    "description": "An AI-powered mobile application designed to help job seekers build, customize, and export professional, ATS-friendly resumes in minutes. Integrated with smart templates and instant translation.",
+    "tech_stack": [
+        "Flutter",
+        "Dart",
+        "Firebase Auth",
+        "GetX State Management",
+        "Syncfusion PDF Viewer",
+        "Lottie Animations",
+        "AI Repurposing API"
+    ],
+    "features": [
+        "Instant PDF generation with multiple interactive and customizable templates.",
+        "AI-driven resume tailoring (repurposing) to adapt descriptions to target job requirements.",
+        "Dual-language translation support (Arabic & English) out of the box.",
+        "Secure user authentication and offline caching of resume data."
+    ],
+    "my_role": "Lead Flutter Developer - Designed and built the entire application architecture from scratch. Configured localization pipelines, built dynamic PDF generation logic, implemented AI API integration, and designed the UI/UX using custom animations.",
+    "google_play_url": "",
+    "app_store_url": ""
+}

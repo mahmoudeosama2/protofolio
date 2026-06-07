@@ -1,0 +1,22 @@
+{
+    "name": "GymX",
+    "description": "A robust gym membership, attendance, and facility administration system designed to track subscriptions, inventory sales, and control physical access gates via dynamic QR codes.",
+    "tech_stack": [
+        "Flutter",
+        "Dart",
+        "Dynamic QR Code Engine",
+        "IoT Access Control Integration",
+        "Reactive State Management",
+        "Local Database Caching",
+        "REST APIs"
+    ],
+    "features": [
+        "IoT-integrated QR Code access control system linked with physical gym gates.",
+        "Automated access restriction upon subscription expiration.",
+        "Comprehensive Gym Membership & Attendance tracking logs.",
+        "Product inventory tracking for supplement sales and staff permissions."
+    ],
+    "my_role": "Backend-to-Mobile Engineer - Solved physical access security challenges by developing a real-time QR code authentication system integrated with the gym's hardware gates. The system validates subscription status in real-time and dynamically controls gate access, preventing unauthorized entry once subscriptions expire.",
+    "google_play_url": "",
+    "app_store_url": ""
+}

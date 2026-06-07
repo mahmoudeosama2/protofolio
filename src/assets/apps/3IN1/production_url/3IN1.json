@@ -1,4 +1,21 @@
 {
+    "name": "3IN1",
+    "description": "A comprehensive sports insights, media streaming, and tracking application built with Flutter, featuring high-performance data visualization and a user-friendly interface.",
+    "tech_stack": [
+        "Flutter",
+        "Dart",
+        "Multi-source API Aggregators",
+        "Custom Media Streaming Controllers",
+        "Reactive Data Handlers",
+        "Caching Layer"
+    ],
+    "features": [
+        "Live Match tracking with detailed team statistics and dynamic charts.",
+        "Comprehensive league standings and tournament structure visualization.",
+        "Unified media streaming player with custom playback controls.",
+        "Instant real-time updates and push notification delivery."
+    ],
+    "my_role": "Mobile Team Lead - Integrated and normalized data from multiple complex APIs into a unified architecture, combining responses from different services to provide users with accurate and near real-time sports insights despite inconsistencies between data providers.",
     "google_play_url": "https://play.google.com/store/apps/details?id=com.mahmoudosama.threeinone",
     "app_store_url": "https://apps.apple.com/us/app/3in1/id6750123456"
 }

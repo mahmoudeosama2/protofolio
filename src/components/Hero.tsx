@@ -19,6 +19,9 @@ export default function Hero() {
       id="home"
       className="min-h-screen bg-[#111111] flex items-center relative overflow-hidden pt-20"
     >
+      {/* Ambient background glows */}
+      <div className="absolute top-[20%] left-[10%] w-[300px] h-[300px] rounded-full bg-primary/10 blur-[120px] animate-float-slow pointer-events-none" />
+      <div className="absolute bottom-[20%] right-[10%] w-[400px] h-[400px] rounded-full bg-primary/5 blur-[150px] animate-float pointer-events-none" />
       <div className="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         <motion.div 
           initial={{ opacity: 0, x: -50 }}
@@ -81,17 +84,25 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="relative flex justify-center items-center"
+          className="relative flex justify-center items-center group cursor-pointer"
         >
-          <div className="absolute w-[450px] h-[450px] md:w-[550px] md:h-[550px] rounded-full bg-gradient-to-tr from-primary/10 to-transparent border border-white/5" />
+          {/* Glowing background aura */}
+          <div className="absolute w-[340px] h-[340px] md:w-[440px] md:h-[440px] rounded-[2.5rem] bg-gradient-to-tr from-primary/20 via-transparent to-primary/5 blur-3xl opacity-60 transition-all duration-500 group-hover:opacity-80" />
+          
+          {/* Rotating decorative border */}
+          <div className="absolute w-[340px] h-[340px] md:w-[440px] md:h-[440px] rounded-[2.5rem] border border-white/10 rotate-6 transition-all duration-500 group-hover:rotate-0 group-hover:border-primary/30" />
+          
+          {/* Secondary offset border */}
+          <div className="absolute w-[340px] h-[340px] md:w-[440px] md:h-[440px] rounded-[2.5rem] border border-primary/20 -rotate-3 transition-all duration-500 group-hover:rotate-0" />
+
+          {/* Main Image */}
           <motion.img
-            initial={{ y: 20 }}
+            initial={{ y: 10 }}
             animate={{ y: 0 }}
-            transition={{ duration: 2, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
+            transition={{ duration: 3, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
             src={myProfileImage}
             alt="Mahmoud Osama - Flutter Developer"
-            className="relative z-10 w-[380px] md:w-[480px] object-cover object-top grayscale hover:grayscale-0 transition-all duration-700"
-            style={{ maskImage: 'linear-gradient(to bottom, black 65%, transparent 100%)' }}
+            className="relative z-10 w-[340px] md:w-[440px] aspect-square rounded-[2.5rem] object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500 border border-white/10 group-hover:border-primary/40 shadow-[0_20px_50px_rgba(0,0,0,0.6)]"
             loading="lazy"
           />
         </motion.div>
