@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import appStoreIcon from '../assets/icons/app-store.png';
-import googlePlayIcon from '../assets/icons/google-play.png';
+import appStoreIcon from '../assets/icons/app-store.webp';
+import googlePlayIcon from '../assets/icons/google-play.webp';
 
 const configModules = import.meta.glob('../assets/apps/*/production_url/*.json', { eager: true });
 const logoModules = import.meta.glob('../assets/apps/*/logo/*.{png,jpg,jpeg,svg,webp}', { eager: true });
