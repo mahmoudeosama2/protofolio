@@ -1,6 +1,8 @@
 import { Download } from 'lucide-react';
 import { motion } from 'framer-motion';
 import myProfileImage from '../assets/images/my_image.webp';
+import cvPdf from '../assets/cv.pdf';
+
 export default function About() {
   return (
     <section id="about" className="bg-[#141414] py-20">
@@ -8,8 +10,7 @@ export default function About() {
         <div className="text-center mb-14">
           <h2 className="text-3xl font-bold text-white mb-3">About Me</h2>
           <p className="text-gray-400 text-sm max-w-xl mx-auto">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua.
+            Experienced Flutter Developer with 3+ years of expertise in cross-platform mobile application development, specializing in building scalable, high-performance applications.
           </p>
         </div>
 
@@ -40,17 +41,20 @@ export default function About() {
             className="flex flex-col gap-6"
           >
             <p className="text-gray-300 text-base leading-relaxed tracking-wide">
-              I am Mahmoud Osama, a passionate Mobile App Developer specializing in Flutter. 
-              I design and develop high-performance, cross-platform mobile applications for both iOS and Android. 
-              My expertise lies in building intuitive user interfaces, integrating robust backend services, and ensuring seamless user experiences. 
-              With a strong eye for detail and commitment to quality, I strive to transform innovative ideas into reality. 
-              Whether it's creating sleek mobile layouts or optimizing app performance, I am dedicated to delivering top-tier digital products.
+              I am Mahmoud Osama, a passionate Multi-Platform App Developer specializing in Flutter. 
+              With 3+ years of professional experience, I build scalable, high-performance applications for Android, iOS, Web, and Desktop.
+              I have successfully designed and developed multiple apps from scratch, ranging from large-scale social media networks with live streaming and reels (like Niargo) to financial systems (like CashFlow) and real-time mapping platforms (like Brha).
+              I focus on clean architecture, SOLID principles, performance optimization, payment integrations, and delivering a smooth, intuitive user experience.
             </p>
 
-            <button className="bg-primary hover:bg-primary/80 text-[#111111] font-extrabold px-8 py-3 rounded-full transition-all duration-300 hover:shadow-[0_0_25px_rgba(253,111,0,0.5)] flex items-center gap-2 w-fit transform hover:-translate-y-1">
+            <a 
+              href={cvPdf} 
+              download="Mahmoud_Osama_CV.pdf"
+              className="bg-primary hover:bg-primary/80 text-[#111111] font-extrabold px-8 py-3 rounded-full transition-all duration-300 hover:shadow-[0_0_25px_rgba(253,111,0,0.5)] flex items-center gap-2 w-fit transform hover:-translate-y-1"
+            >
               <Download size={18} />
               Download CV
-            </button>
+            </a>
           </motion.div>
         </div>
       </div>

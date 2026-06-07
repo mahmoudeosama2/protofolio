@@ -2,12 +2,12 @@ import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 
 const skills = [
-  { name: 'Flutter & Dart', percentage: 95 },
-  { name: 'State Management (Bloc / Riverpod)', percentage: 90 },
-  { name: 'Firebase & Supabase', percentage: 85 },
-  { name: 'REST APIs & WebSockets', percentage: 90 },
-  { name: 'CI/CD & Git', percentage: 85 },
-  { name: 'UI/UX Design (Figma)', percentage: 80 },
+  { name: 'Flutter & Dart Development', percentage: 95 },
+  { name: 'State Management (Bloc/Cubit, Riverpod)', percentage: 92 },
+  { name: 'Clean Architecture & SOLID', percentage: 90 },
+  { name: 'Firebase & Local DBs (SQLite/MySQL)', percentage: 88 },
+  { name: 'REST APIs & Push Notifications', percentage: 90 },
+  { name: 'Performance & Optimization', percentage: 92 },
 ];
 
 interface CircularSkillProps {

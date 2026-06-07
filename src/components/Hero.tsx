@@ -1,6 +1,7 @@
 import { Linkedin, MessageCircle, Github } from 'lucide-react';
 import { motion } from 'framer-motion';
 import myProfileImage from '../assets/images/my_image.webp';
+import cvPdf from '../assets/cv.pdf';
 
 const stats = [
   { value: '5+', label: 'Experiences' },
@@ -60,9 +61,13 @@ export default function Hero() {
             >
               Hire Me
             </button>
-            <button className="border border-white/20 hover:border-primary text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:text-primary backdrop-blur-sm bg-white/5 hover:bg-white/10">
+            <a 
+              href={cvPdf}
+              download="Mahmoud_Osama_CV.pdf"
+              className="border border-white/20 hover:border-primary text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:text-primary backdrop-blur-sm bg-white/5 hover:bg-white/10 flex items-center justify-center"
+            >
               Download CV
-            </button>
+            </a>
           </div>
 
           <div className="flex items-center gap-0 mt-6 bg-[#1a1a1a]/80 backdrop-blur-md border border-white/5 rounded-2xl p-6 w-fit shadow-2xl">

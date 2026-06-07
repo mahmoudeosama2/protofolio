@@ -1,36 +1,36 @@
-import { Smartphone, Monitor, Palette, Layers, PenTool, LayoutGrid as Layout } from 'lucide-react';
+import { Smartphone, Layers, MessageSquare, CreditCard, Zap, Globe } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const services = [
   {
     icon: <Smartphone size={32} />,
-    title: 'App Design',
-    desc: 'Creating intuitive and engaging mobile app interfaces that deliver seamless user experiences across all platforms.',
-  },
-  {
-    icon: <Monitor size={32} />,
-    title: 'Web Design',
-    desc: 'Designing modern, responsive websites with clean layouts and compelling visual hierarchies that convert visitors.',
-  },
-  {
-    icon: <Palette size={32} />,
-    title: 'Brand Identity',
-    desc: 'Building cohesive brand identities with logos, color systems, and visual guidelines that tell your story.',
+    title: 'Cross-Platform Apps',
+    desc: 'Building high-performance, responsive applications for Android, iOS, Web, and Desktop from scratch using a single Flutter codebase.',
   },
   {
     icon: <Layers size={32} />,
-    title: 'UI Design',
-    desc: 'Crafting pixel-perfect user interfaces with attention to detail, consistency, and design system principles.',
+    title: 'Robust Architecture',
+    desc: 'Designing scalable and maintainable applications using Bloc, Cubit, and Riverpod state management, adhering to SOLID principles and Clean Architecture.',
   },
   {
-    icon: <PenTool size={32} />,
-    title: 'UX Research',
-    desc: 'Conducting user research, usability testing, and wireframing to create data-driven design solutions.',
+    icon: <MessageSquare size={32} />,
+    title: 'Real-Time Systems',
+    desc: 'Integrating live video streaming (Zego Cloud), instant messaging, push notifications, and background sync using Firebase and WebSockets.',
   },
   {
-    icon: <Layout size={32} />,
-    title: 'Prototyping',
-    desc: 'Building interactive prototypes that communicate design intent and allow for rapid iteration and testing.',
+    icon: <CreditCard size={32} />,
+    title: 'Payment Integration',
+    desc: 'Embedding secure online payment solutions including Stripe, Google Pay, Apple Pay, PayMob, and custom payment link services.',
+  },
+  {
+    icon: <Zap size={32} />,
+    title: 'Performance Optimization',
+    desc: 'Tuning app speed, memory leaks, assets preloading, and reels/video caching to maintain a buttery-smooth 60fps/120fps scrolling experience.',
+  },
+  {
+    icon: <Globe size={32} />,
+    title: 'App Store Operations',
+    desc: 'Deploying production-ready applications on Apple App Store and Google Play Console, managing the entire lifecycle, ASO, and updates.',
   },
 ];
 
