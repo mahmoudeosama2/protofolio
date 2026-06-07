@@ -5,8 +5,8 @@ import appStoreIcon from '../assets/icons/app-store.png';
 import googlePlayIcon from '../assets/icons/google-play.png';
 
 const configModules = import.meta.glob('../assets/apps/*/production_url/*.json', { eager: true });
-const logoModules = import.meta.glob('../assets/apps/*/logo/*.{png,jpg,jpeg,svg}', { eager: true });
-const screenshotModules = import.meta.glob('../assets/apps/*/screenshots/*.{png,jpg,jpeg}', { eager: true });
+const logoModules = import.meta.glob('../assets/apps/*/logo/*.{png,jpg,jpeg,svg,webp}', { eager: true });
+const screenshotModules = import.meta.glob('../assets/apps/*/screenshots/*.{png,jpg,jpeg,webp}', { eager: true });
 
 const appsData: Record<string, any> = {};
 
