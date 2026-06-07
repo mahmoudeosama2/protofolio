@@ -1,4 +1,4 @@
-import { Smartphone, Layers, MessageSquare, CreditCard, Zap, Globe } from 'lucide-react';
+import { Smartphone, Layers, MessageSquare, CreditCard, Zap, Globe, LayoutGrid, Wrench } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const services = [
@@ -31,6 +31,16 @@ const services = [
     icon: <Globe size={32} />,
     title: 'App Store Operations',
     desc: 'Deploying production-ready applications on Apple App Store and Google Play Console, managing the entire lifecycle, ASO, and updates.',
+  },
+  {
+    icon: <LayoutGrid size={32} />,
+    title: 'FluxBuilder Development',
+    desc: 'Configuring and building feature-rich applications using the FluxBuilder drag-and-drop ecosystem. Successfully designed, customized, and published 14+ applications to Google Play and Apple App Store.',
+  },
+  {
+    icon: <Wrench size={32} />,
+    title: 'Envato Customization & Publishing',
+    desc: 'Customizing, modifying, and redesigning Envato mobile templates to fit unique brand identities. Expertly fixing compile errors, solving publishing issues, and successfully deploying 20+ applications.',
   },
 ];
 
