@@ -1,6 +1,6 @@
 import { Linkedin, MessageCircle, Github } from 'lucide-react';
 import { motion } from 'framer-motion';
-import myProfileImage from '../assets/images/my_image.png';
+import myProfileImage from '../assets/images/my_image.webp';
 
 const stats = [
   { value: '5+', label: 'Experiences' },
