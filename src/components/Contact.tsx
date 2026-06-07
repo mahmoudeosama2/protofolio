@@ -17,13 +17,7 @@ export default function Contact() {
     setLoading(true);
     setErrorMessage('');
 
-    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || '';
-
-    if (!accessKey) {
-      setErrorMessage('Please set VITE_WEB3FORMS_ACCESS_KEY in your .env file.');
-      setLoading(false);
-      return;
-    }
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || '9660bec9-7a3c-42d6-b07d-80261bdf798d';
 
     try {
       const response = await fetch('https://api.web3forms.com/submit', {
