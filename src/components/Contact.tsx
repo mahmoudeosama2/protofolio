@@ -5,16 +5,55 @@ import { motion } from 'framer-motion';
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSent(true);
-    setTimeout(() => setSent(false), 3000);
-    setForm({ name: '', email: '', subject: '', message: '' });
+    setLoading(true);
+    setErrorMessage('');
+
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || '';
+
+    if (!accessKey) {
+      setErrorMessage('Please set VITE_WEB3FORMS_ACCESS_KEY in your .env file.');
+      setLoading(false);
+      return;
+    }
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          name: form.name,
+          email: form.email,
+          subject: form.subject || 'Portfolio Contact Message',
+          message: form.message,
+        }),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setSent(true);
+        setForm({ name: '', email: '', subject: '', message: '' });
+        setTimeout(() => setSent(false), 5000);
+      } else {
+        setErrorMessage(result.message || 'Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      setErrorMessage('Network error. Please check your internet connection.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   const inputClass =
@@ -95,12 +134,23 @@ export default function Contact() {
                 className={`${inputClass} resize-none`}
               />
             </div>
-            <div className="flex justify-end mt-2">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-2">
+              <div className="text-left w-full sm:w-auto">
+                {errorMessage && (
+                  <p className="text-red-500 text-sm font-medium animate-pulse">{errorMessage}</p>
+                )}
+                {sent && (
+                  <p className="text-emerald-500 text-sm font-medium">Message sent successfully!</p>
+                )}
+              </div>
               <button
                 type="submit"
-                className="bg-primary hover:bg-primary/80 text-[#111111] font-bold px-8 py-3.5 rounded-full transition-all duration-300 hover:shadow-[0_0_25px_rgba(253,111,0,0.5)] flex items-center gap-2 transform hover:-translate-y-1"
+                disabled={loading}
+                className="bg-primary hover:bg-primary/80 disabled:bg-primary/50 disabled:cursor-not-allowed text-[#111111] font-bold px-8 py-3.5 rounded-full transition-all duration-300 hover:shadow-[0_0_25px_rgba(253,111,0,0.5)] flex items-center justify-center gap-2 transform hover:-translate-y-1 w-full sm:w-auto"
               >
-                {sent ? (
+                {loading ? (
+                  'Sending...'
+                ) : sent ? (
                   'Message Sent!'
                 ) : (
                   <>

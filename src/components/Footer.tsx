@@ -18,9 +18,6 @@ export default function Footer() {
     <footer className="bg-[#0e0e0e] border-t border-gray-800 py-10">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col items-center gap-6">
-          <a href="#home" className="text-2xl font-extrabold text-primary tracking-wider">
-            Mahmoud
-          </a>
 
           <nav className="flex flex-wrap justify-center gap-6">
             {navLinks.map((link) => (
