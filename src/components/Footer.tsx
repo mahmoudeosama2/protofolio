@@ -19,7 +19,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col items-center gap-6">
           <a href="#home" className="text-2xl font-extrabold text-primary tracking-wider">
-            LOGO
+            Mahmoud
           </a>
 
           <nav className="flex flex-wrap justify-center gap-6">
