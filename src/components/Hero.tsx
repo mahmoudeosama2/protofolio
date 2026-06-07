@@ -21,8 +21,8 @@ export default function Hero() {
       className="min-h-screen bg-[#111111] flex items-center relative overflow-hidden pt-20"
     >
       {/* Ambient background glows */}
-      <div className="absolute top-[20%] left-[10%] w-[300px] h-[300px] rounded-full bg-primary/10 blur-[120px] animate-float-slow pointer-events-none" />
-      <div className="absolute bottom-[20%] right-[10%] w-[400px] h-[400px] rounded-full bg-primary/5 blur-[150px] animate-float pointer-events-none" />
+      <div className="absolute top-[20%] left-[10%] w-[300px] h-[300px] rounded-full bg-primary/10 blur-[120px] md:animate-float-slow pointer-events-none" />
+      <div className="absolute bottom-[20%] right-[10%] w-[400px] h-[400px] rounded-full bg-primary/5 blur-[150px] md:animate-float pointer-events-none" />
       <div className="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         <motion.div 
           initial={{ opacity: 0, x: -50 }}
@@ -103,11 +103,11 @@ export default function Hero() {
           {/* Main Image */}
           <motion.img
             initial={{ y: 10 }}
-            animate={{ y: 0 }}
-            transition={{ duration: 3, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
+            animate={typeof window !== 'undefined' && window.innerWidth < 768 ? {} : { y: [10, 0] }}
+            transition={typeof window !== 'undefined' && window.innerWidth < 768 ? {} : { duration: 3, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
             src={myProfileImage}
             alt="Mahmoud Osama - Flutter Developer"
-            className="relative z-10 w-[340px] md:w-[440px] aspect-square rounded-[2.5rem] object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500 border border-white/10 group-hover:border-primary/40 shadow-[0_20px_50px_rgba(0,0,0,0.6)]"
+            className="relative z-10 w-[340px] md:w-[440px] aspect-square rounded-[2.5rem] object-cover object-top md:grayscale md:group-hover:grayscale-0 transition-all duration-500 border border-white/10 group-hover:border-primary/40 shadow-[0_20px_50px_rgba(0,0,0,0.6)]"
             loading="lazy"
           />
         </motion.div>

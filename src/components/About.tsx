@@ -27,7 +27,7 @@ export default function About() {
               <img
                 src={myProfileImage}
                 alt="About Mahmoud Osama"
-                className="relative rounded-[2rem] w-full max-w-sm object-cover grayscale transition-all duration-500 group-hover:grayscale-0 border border-white/10"
+                className="relative rounded-[2rem] w-full max-w-sm object-cover md:grayscale transition-all duration-500 md:group-hover:grayscale-0 border border-white/10"
                 loading="lazy"
               />
             </div>
