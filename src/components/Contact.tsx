@@ -30,7 +30,9 @@ export default function Contact() {
           access_key: accessKey,
           name: form.name,
           email: form.email,
-          subject: form.subject || 'Portfolio Contact Message',
+          subject: `${form.subject || 'Portfolio Message'} - from ${form.name}`,
+          from_name: form.name,
+          replyto: form.email,
           message: form.message,
         }),
       });
