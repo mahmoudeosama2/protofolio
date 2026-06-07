@@ -70,7 +70,7 @@ export default function Hero() {
             </a>
           </div>
 
-          <div className="flex items-center gap-0 mt-6 bg-[#1a1a1a]/80 backdrop-blur-md border border-white/5 rounded-2xl p-6 w-fit shadow-2xl">
+          <div className="flex items-center gap-0 mt-6 bg-[#1a1a1a] border border-white/5 rounded-2xl p-6 w-fit shadow-2xl">
             {stats.map((stat, i) => (
               <div key={stat.label} className="flex items-center">
                 <div className="px-6 first:pl-0 last:pr-0 text-center">
@@ -101,14 +101,11 @@ export default function Hero() {
           <div className="absolute w-[340px] h-[340px] md:w-[440px] md:h-[440px] rounded-[2.5rem] border border-primary/20 -rotate-3 transition-all duration-500 group-hover:rotate-0" />
 
           {/* Main Image */}
-          <motion.img
-            initial={{ y: 10 }}
-            animate={typeof window !== 'undefined' && window.innerWidth < 768 ? {} : { y: [10, 0] }}
-            transition={typeof window !== 'undefined' && window.innerWidth < 768 ? {} : { duration: 3, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
+          <img
             src={myProfileImage}
             alt="Mahmoud Osama - Flutter Developer"
-            className="relative z-10 w-[340px] md:w-[440px] aspect-square rounded-[2.5rem] object-cover object-top md:grayscale md:group-hover:grayscale-0 transition-all duration-500 border border-white/10 group-hover:border-primary/40 shadow-[0_20px_50px_rgba(0,0,0,0.6)]"
-            loading="lazy"
+            className="relative z-10 w-[340px] md:w-[440px] aspect-square rounded-[2.5rem] object-cover object-top md:grayscale md:group-hover:grayscale-0 transition-all duration-500 border border-white/10 group-hover:border-primary/40 shadow-[0_20px_50px_rgba(0,0,0,0.6)] md:animate-float-slow"
+            loading="eager"
           />
         </motion.div>
       </div>

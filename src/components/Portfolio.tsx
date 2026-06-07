@@ -67,16 +67,14 @@ export default function Portfolio() {
         {apps.length === 0 ? (
           <div className="text-center text-gray-500 py-10">Loading applications...</div>
         ) : (
-          <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <AnimatePresence>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {apps.map((app) => (
                 <motion.div
-                  layout
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
-                  whileHover={{ y: -8 }}
-                  transition={{ duration: 0.4, ease: "easeOut" }}
+                  whileHover={{ y: -6 }}
+                  transition={{ duration: 0.35, ease: "easeOut" }}
                   key={app.id}
                   onClick={() => setSelectedApp(app)}
                   className="relative rounded-[2.5rem] overflow-hidden cursor-pointer group bg-gradient-to-b from-[#1c1c1c] to-[#121212] border border-white/5 shadow-2xl hover:border-primary/30 hover:shadow-[0_20px_50px_rgba(253,111,0,0.15)] transition-all duration-500 flex flex-col items-center justify-between p-8 text-center min-h-[420px]"
@@ -128,8 +126,7 @@ export default function Portfolio() {
                   </div>
                 </motion.div>
               ))}
-            </AnimatePresence>
-          </motion.div>
+          </div>
         )}
       </div>
 
@@ -141,7 +138,7 @@ export default function Portfolio() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md"
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-black/85"
             onClick={() => setSelectedApp(null)}
           >
             <motion.div
@@ -323,7 +320,7 @@ export default function Portfolio() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[200] flex items-center justify-center bg-black/95 backdrop-blur-xl p-4 sm:p-8"
+            className="fixed inset-0 z-[200] flex items-center justify-center bg-black/95 p-4 sm:p-8"
             onClick={() => setFullScreenImage(null)}
           >
             <button 
