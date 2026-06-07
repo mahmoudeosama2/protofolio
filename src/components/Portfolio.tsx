@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { X } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import appStoreIcon from '../assets/icons/app-store.png';
 import googlePlayIcon from '../assets/icons/google-play.png';
@@ -35,6 +35,15 @@ const apps = Object.entries(appsData).map(([id, data]) => ({ id, ...data }));
 
 export default function Portfolio() {
   const [selectedApp, setSelectedApp] = useState<any | null>(null);
+  const [fullScreenImage, setFullScreenImage] = useState<string | null>(null);
+  const galleryRef = useRef<HTMLDivElement>(null);
+
+  const scrollGallery = (direction: 'left' | 'right') => {
+    if (galleryRef.current) {
+      const scrollAmount = galleryRef.current.clientWidth * 0.8;
+      galleryRef.current.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
+    }
+  };
 
   // Disable body scroll when modal is open
   useEffect(() => {
@@ -75,17 +84,13 @@ export default function Portfolio() {
                   {/* Subtle ambient light behind the card on hover */}
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-48 bg-primary/10 rounded-full blur-[50px] opacity-40 group-hover:opacity-80 group-hover:scale-125 transition-all duration-700 pointer-events-none" />
 
-                  {/* App Icon Container - Squircle styling */}
-                  <div className="w-32 h-32 md:w-36 md:h-36 relative flex items-center justify-center rounded-[24%] shadow-[0_15px_30px_rgba(0,0,0,0.4)] group-hover:shadow-[0_20px_40px_rgba(253,111,0,0.25)] overflow-hidden transition-all duration-500 group-hover:scale-105 z-10">
-                    {/* Inner glossy reflection */}
-                    <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/5 to-white/10 opacity-20 pointer-events-none z-20" />
-                    <img
-                      src={app.logo}
-                      alt={app.config?.name || app.id}
-                      className="w-full h-full object-cover filter group-hover:scale-105 transition-transform duration-500"
-                      loading="lazy"
-                    />
-                  </div>
+                  {/* App Icon - No Square Container */}
+                  <img
+                    src={app.logo}
+                    alt={app.config?.name || app.id}
+                    className="w-32 h-32 md:w-36 md:h-36 object-contain filter group-hover:scale-110 transition-transform duration-500 z-10 drop-shadow-2xl"
+                    loading="lazy"
+                  />
 
                   {/* Content (Name & Description) */}
                   <div className="flex flex-col items-center flex-1 justify-center my-4 z-10">
@@ -150,9 +155,7 @@ export default function Portfolio() {
               {/* Header */}
               <div className="flex items-center justify-between p-6 md:p-8 border-b border-white/5 backdrop-blur-md bg-[#111111]/90 sticky top-0 z-20">
                 <div className="flex items-center gap-5">
-                  <div className="w-16 h-16 flex items-center justify-center rounded-2xl overflow-hidden filter drop-shadow-[0_0_10px_rgba(253,111,0,0.4)]">
-                    <img src={selectedApp.logo} alt={selectedApp.id} className="w-full h-full object-cover" />
-                  </div>
+                  <img src={selectedApp.logo} alt={selectedApp.id} className="w-16 h-16 object-contain filter drop-shadow-md" />
                   <div>
                     <h3 className="text-2xl md:text-3xl font-extrabold text-white">{selectedApp.config?.name || selectedApp.id}</h3>
                     <p className="text-primary text-sm font-medium tracking-wide mt-1">Mobile Application</p>
@@ -255,37 +258,90 @@ export default function Portfolio() {
                 )}
 
                 {/* Screenshots Gallery */}
-                <div>
+                <div className="relative">
                   <h4 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
                     <span className="w-2 h-5 bg-primary rounded-full"></span>
                     App Screenshots
                   </h4>
-                  <div className="flex gap-4 md:gap-6 overflow-x-auto pb-6 snap-x snap-mandatory custom-scrollbar-horizontal hide-scroll-indicator">
-                    {selectedApp.screenshots && selectedApp.screenshots.length > 0 ? (
-                      selectedApp.screenshots.map((screenshot: string, i: number) => (
-                        <motion.div 
-                          initial={{ opacity: 0, x: 20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: i * 0.05 }}
-                          key={i} 
-                          className="h-[450px] md:h-[550px] w-auto flex-shrink-0 snap-center rounded-2xl overflow-hidden border border-white/10 shadow-xl bg-black"
-                        >
-                          <img
-                            src={screenshot}
-                            alt={`${selectedApp.id} screenshot ${i + 1}`}
-                            className="h-full w-auto object-contain"
-                            loading="lazy"
-                          />
-                        </motion.div>
-                      ))
-                    ) : (
-                      <p className="text-gray-500 italic">No screenshots available.</p>
-                    )}
-                  </div>
+                  
+                  {selectedApp.screenshots && selectedApp.screenshots.length > 0 ? (
+                    <div className="relative group">
+                      {/* Left Arrow */}
+                      <button 
+                        onClick={() => scrollGallery('left')}
+                        className="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-black/50 hover:bg-primary text-white rounded-full flex items-center justify-center backdrop-blur-sm transition-all duration-300 opacity-0 group-hover:opacity-100 disabled:opacity-0"
+                      >
+                        <ChevronLeft size={28} />
+                      </button>
+
+                      <div 
+                        ref={galleryRef}
+                        className="flex gap-4 md:gap-6 overflow-x-auto pb-6 snap-x snap-mandatory hide-scroll-indicator scroll-smooth"
+                      >
+                        {selectedApp.screenshots.map((screenshot: string, i: number) => (
+                          <motion.div 
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: i * 0.05 }}
+                            key={i} 
+                            onClick={() => setFullScreenImage(screenshot)}
+                            className="h-[450px] md:h-[550px] w-auto flex-shrink-0 snap-center rounded-2xl overflow-hidden border border-white/10 shadow-xl bg-[#0a0a0a] cursor-zoom-in hover:border-primary/50 transition-colors"
+                          >
+                            <img
+                              src={screenshot}
+                              alt={`${selectedApp.id} screenshot ${i + 1}`}
+                              className="h-full w-auto object-contain"
+                              loading="lazy"
+                            />
+                          </motion.div>
+                        ))}
+                      </div>
+
+                      {/* Right Arrow */}
+                      <button 
+                        onClick={() => scrollGallery('right')}
+                        className="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-black/50 hover:bg-primary text-white rounded-full flex items-center justify-center backdrop-blur-sm transition-all duration-300 opacity-0 group-hover:opacity-100"
+                      >
+                        <ChevronRight size={28} />
+                      </button>
+                    </div>
+                  ) : (
+                    <p className="text-gray-500 italic">No screenshots available.</p>
+                  )}
                 </div>
 
               </div>
             </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Fullscreen Image Lightbox */}
+      <AnimatePresence>
+        {fullScreenImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[200] flex items-center justify-center bg-black/95 backdrop-blur-xl p-4 sm:p-8"
+            onClick={() => setFullScreenImage(null)}
+          >
+            <button 
+              className="absolute top-6 right-6 w-12 h-12 bg-white/10 hover:bg-primary text-white rounded-full flex items-center justify-center transition-all z-10"
+              onClick={() => setFullScreenImage(null)}
+            >
+              <X size={24} />
+            </button>
+            <motion.img 
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.9 }}
+              transition={{ type: "spring", bounce: 0.2 }}
+              src={fullScreenImage} 
+              alt="Fullscreen screenshot" 
+              className="max-w-full max-h-full object-contain drop-shadow-2xl rounded-lg"
+              onClick={(e) => e.stopPropagation()}
+            />
           </motion.div>
         )}
       </AnimatePresence>
