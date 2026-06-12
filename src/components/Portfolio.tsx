@@ -3,6 +3,7 @@ import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import appStoreIcon from '../assets/icons/app-store.webp';
 import googlePlayIcon from '../assets/icons/google-play.webp';
+import { logCustomEvent } from '../firebase';
 
 const configModules = import.meta.glob('../assets/apps/*/production_url/*.json', { eager: true });
 const logoModules = import.meta.glob('../assets/apps/*/logo/*.{png,jpg,jpeg,svg,webp}', { eager: true });
@@ -76,7 +77,10 @@ export default function Portfolio() {
                   whileHover={{ y: -6 }}
                   transition={{ duration: 0.35, ease: "easeOut" }}
                   key={app.id}
-                  onClick={() => setSelectedApp(app)}
+                  onClick={() => {
+                    setSelectedApp(app);
+                    logCustomEvent('view_app_details', { app_name: app.config?.name || app.id });
+                  }}
                   className="relative rounded-[2.5rem] overflow-hidden cursor-pointer group bg-gradient-to-b from-[#1c1c1c] to-[#121212] border border-white/5 shadow-2xl hover:border-primary/30 hover:shadow-[0_20px_50px_rgba(253,111,0,0.15)] transition-all duration-500 flex flex-col items-center justify-between p-8 text-center min-h-[420px]"
                 >
                   {/* Subtle ambient light behind the card on hover */}
@@ -176,6 +180,7 @@ export default function Portfolio() {
                       href={selectedApp.config.google_play_url}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() => logCustomEvent('click_google_play', { app_name: selectedApp.config?.name || selectedApp.id })}
                       className="transition-transform duration-300 hover:scale-105 inline-block"
                     >
                       <img src={googlePlayIcon} alt="Get it on Google Play" className="h-12 md:h-14 w-auto drop-shadow-lg" />
@@ -186,6 +191,7 @@ export default function Portfolio() {
                       href={selectedApp.config.app_store_url}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() => logCustomEvent('click_app_store', { app_name: selectedApp.config?.name || selectedApp.id })}
                       className="transition-transform duration-300 hover:scale-105 inline-block"
                     >
                       <img src={appStoreIcon} alt="Download on the App Store" className="h-12 md:h-14 w-auto drop-shadow-lg" />

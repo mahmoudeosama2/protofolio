@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Send } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { logCustomEvent } from '../firebase';
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
@@ -40,6 +41,7 @@ export default function Contact() {
       const result = await response.json();
       if (result.success) {
         setSent(true);
+        logCustomEvent('contact_form_submitted');
         setForm({ name: '', email: '', subject: '', message: '' });
         setTimeout(() => setSent(false), 5000);
       } else {
